@@ -6,7 +6,7 @@
 using namespace std;
 
 class student{
-	string name, faculty;
+	char name[20], faculty[20];
 	int age;
 	
 	public:
@@ -33,7 +33,7 @@ class student{
 		student s;
 		s.getdata();
 		ofstream writeto;
-		writeto.open("pqr.txt", ios::app);
+		writeto.open("hello.txt", ios::app);
 		if(!writeto)
 		{
 			cout<<"unable to open";
@@ -49,15 +49,15 @@ class student{
 		
 		//student s1;
 		ifstream readfrom;
-		readfrom.open("pqr.txt");
+		readfrom.open("hello.txt");
 		if(!readfrom)
 		{
 			cout<<"unable to open";
 		}
 		else{
-			while(!readfrom.eof())
+			while(	readfrom.read((char*)&s, sizeof(s)))
 			{
-				readfrom.read((char*)&s, sizeof(s));
+			
 						s.show();	
 			}
 			
